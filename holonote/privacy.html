@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Holo Note — Privacy Policy</title>
+  <meta name="description" content="Privacy Policy for Holo Note. Offline notes app. No login, no tracking." />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      min-height:100vh;
+      background: radial-gradient(circle at top, #3b82f6 0, #020617 55%, #000 100%);
+      color:#f9fafb;
+      padding:24px;
+    }
+    .overlay{
+      position:fixed; inset:0; pointer-events:none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(56,189,248,0.15) 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(129,140,248,0.18) 0, transparent 55%);
+      opacity:.95; z-index:0;
+    }
+    .wrap{position:relative;z-index:1;max-width:860px;margin:0 auto}
+    .card{
+      background: rgba(15,23,42,0.92);
+      border:1px solid rgba(148,163,184,0.3);
+      border-radius:24px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.85);
+      padding:26px;
+      backdrop-filter: blur(14px);
+    }
+    @media(min-width:640px){.card{padding:38px}}
+    h1{font-size:26px;margin-bottom:8px}
+    .muted{color:#cbd5f5;line-height:1.7;font-size:14px;margin-bottom:16px}
+    h2{font-size:16px;margin-top:18px;margin-bottom:8px}
+    p,li{color:#cbd5f5;line-height:1.8;font-size:14px}
+    ul{padding-left:18px}
+    .topbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:14px}
+    a{color:#38bdf8;text-decoration:none}
+    a:hover{text-decoration:underline}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(148,163,184,0.35);
+      background:transparent;color:#f9fafb;text-decoration:none;font-weight:600;font-size:13px;
+    }
+    footer{margin-top:16px;color:#6b7280;font-size:11px;text-align:center}
+    .small{color:#9ca3af;font-size:12px;margin-top:10px}
+    code{background:rgba(2,6,23,0.6);padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn" href="./index.html">← Back to Home</a>
+      <span class="small">Last updated: <span id="updated"></span></span>
+    </div>
+
+    <main class="card">
+      <h1>Privacy Policy — Holo Note</h1>
+      <p class="muted">
+        Holo Note respects your privacy. This app is designed to work offline and keep your notes on your device.
+      </p>
+
+      <h2>Data Collection</h2>
+      <p>Holo Note does <strong>not</strong> collect, store, or transmit personal data.</p>
+
+      <h2>How Your Notes Are Stored</h2>
+      <p>Your notes are stored locally on your device using on-device storage (SQLite). No cloud sync is required.</p>
+
+      <h2>Internet Usage</h2>
+      <p>Holo Note works fully offline. The app does not require internet access to function.</p>
+
+      <h2>Accounts / Login</h2>
+      <p>Holo Note does not require registration or login.</p>
+
+      <h2>Backups (Export / Import)</h2>
+      <ul>
+        <li>Backup files are created only when you choose to export.</li>
+        <li>You control where the backup is saved and how it is shared.</li>
+        <li>The app does not upload backups to any server.</li>
+      </ul>
+
+      <h2>Third-Party Services</h2>
+      <p>Holo Note does not use ads, analytics, or tracking SDKs.</p>
+
+      <h2>Children’s Privacy</h2>
+      <p>Holo Note does not knowingly collect data from children under 13.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>If we update this policy, we will update the “Last updated” date on this page.</p>
+
+      <h2>Contact</h2>
+      <p>
+        If you have questions about this Privacy Policy, contact:
+        <a href="mailto:hello.thehexer@gmail.com">hello.thehexer@gmail.com</a>
+      </p>
+
+      <footer>
+        © <span id="year"></span> Holo Note
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("updated").textContent = new Date().toISOString().slice(0, 10);
+  </script>
+</body>
+</html>

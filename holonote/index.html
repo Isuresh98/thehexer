@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Holo Note — Offline Notes</title>
+  <meta name="description" content="Holo Note is a beautiful offline notes app with folders, search, pin, star, and backup/restore." />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: radial-gradient(circle at top, #3b82f6 0, #020617 55%, #000 100%);
+      color:#f9fafb;
+      padding:24px;
+    }
+    .overlay{
+      position:fixed; inset:0; pointer-events:none;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(56,189,248,0.15) 0, transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(129,140,248,0.18) 0, transparent 55%);
+      opacity:.95; z-index:0;
+    }
+    .card{
+      position:relative; z-index:1;
+      width:100%; max-width:760px;
+      background: rgba(15,23,42,0.92);
+      border:1px solid rgba(148,163,184,0.3);
+      border-radius:24px;
+      box-shadow: 0 24px 60px rgba(15,23,42,0.85);
+      padding:28px;
+      backdrop-filter: blur(14px);
+    }
+    @media (min-width:640px){.card{padding:38px}}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px;text-transform:uppercase;letter-spacing:.15em;
+      padding:6px 12px;border-radius:999px;
+      background: rgba(15,118,110,0.32);
+      color:#a5f3fc;
+      border: 1px solid rgba(45,212,191,0.5);
+      margin-bottom:16px;
+    }
+    .badge-dot{
+      width:8px;height:8px;border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 0 4px rgba(34,197,94,0.3);
+    }
+    .logo{
+      font-size:34px;font-weight:800;letter-spacing:.12em;
+      text-transform:uppercase; margin-bottom:10px;
+      color:#e5e7eb;
+    }
+    .logo span{
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .subtitle{color:#cbd5f5;line-height:1.7;margin:10px 0 18px;font-size:14px}
+    .grid{display:grid;gap:12px;grid-template-columns:1fr}
+    @media(min-width:720px){.grid{grid-template-columns:1.1fr .9fr}}
+    .panel{
+      border:1px solid rgba(51,65,81,0.9);
+      background: rgba(2,6,23,0.45);
+      border-radius:18px;
+      padding:16px;
+    }
+    .panel h2{font-size:16px;margin-bottom:10px;color:#f9fafb}
+    ul{padding-left:18px;color:#cbd5f5;line-height:1.7;font-size:14px}
+    .cta-row{
+      display:flex;flex-direction:column;gap:10px;margin-top:18px
+    }
+    @media(min-width:520px){.cta-row{flex-direction:row;align-items:center}}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;border-radius:999px;text-decoration:none;
+      border:none;cursor:pointer;font-weight:600;font-size:14px;
+      color:#f9fafb;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      box-shadow:0 12px 25px rgba(59,130,246,0.45), 0 0 0 1px rgba(37,99,235,0.8);
+    }
+    .btn.secondary{
+      background: transparent;
+      border: 1px solid rgba(148,163,184,0.35);
+      box-shadow:none;
+    }
+    .small{
+      margin-top:14px;
+      color:#9ca3af;
+      font-size:12px;
+      line-height:1.6;
+    }
+    a{color:#38bdf8}
+    footer{margin-top:18px;color:#6b7280;font-size:11px;text-align:center}
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+
+  <main class="card">
+    <div class="badge"><span class="badge-dot"></span> Offline • Private • Fast</div>
+
+    <div class="logo">HOLO <span>NOTE</span></div>
+    <p class="subtitle">
+      Holo Note is a beautiful offline notes app with folders, search, pin/star and backup/restore.
+      No login. No tracking. Your notes stay on your device.
+    </p>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Key Features</h2>
+        <ul>
+          <li>Offline notes (no account required)</li>
+          <li>Folders, tags & fast search</li>
+          <li>Pin important notes & star favorites</li>
+          <li>Backup export / import (you control sharing)</li>
+          <li>Modern glass-style dark UI</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h2>Support</h2>
+        <ul>
+          <li>Email: <a href="mailto:hello.thehexer@gmail.com">hello.thehexer@gmail.com</a></li>
+          <li>Privacy: <a href="./privacy.html">Read Privacy Policy</a></li>
+        </ul>
+
+        <div class="cta-row">
+          <!-- Replace with your Play Store link later -->
+          <a class="btn" href="#" aria-label="Get Holo Note on Google Play">Get on Google Play</a>
+          <a class="btn secondary" href="./privacy.html">Privacy Policy</a>
+        </div>
+
+        <p class="small">
+          Tip: After you publish, replace the Play Store button link with your app URL.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Holo Note. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
